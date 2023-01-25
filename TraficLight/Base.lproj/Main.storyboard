@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -14,17 +14,17 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TraficLight" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNI-bU-ihu">
-                                <rect key="frame" x="129.5" y="716" width="155" height="45"/>
+                                <rect key="frame" x="136.66666666666666" y="783" width="154.99999999999997" height="69"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="155" id="O9M-p1-kV7"/>
-                                    <constraint firstAttribute="height" constant="45" id="VmC-Yy-bqa"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="VmC-Yy-bqa"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="47"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="start">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -33,20 +33,29 @@
                                     <action selector="nextButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="DqD-Ak-J8s"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="41" translatesAutoresizingMaskIntoConstraints="NO" id="tHn-j0-VgK">
-                                <rect key="frame" x="137" y="101" width="140" height="536"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="uER-Fh-TZE">
+                                <rect key="frame" x="157" y="99.999999999999972" width="114" height="408.33333333333326"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MN2-KO-Qgj">
-                                        <rect key="frame" x="0.0" y="0.0" width="140" height="151.5"/>
+                                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MN2-KO-Qgj">
+                                        <rect key="frame" x="0.0" y="0.0" width="114" height="114"/>
                                         <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="MN2-KO-Qgj" secondAttribute="height" multiplier="1:1" id="e7d-iN-HPh"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C6k-TA-1ha">
-                                        <rect key="frame" x="0.0" y="192.5" width="140" height="151"/>
+                                        <rect key="frame" x="0.0" y="147" width="114" height="114.33333333333331"/>
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="C6k-TA-1ha" secondAttribute="height" multiplier="1:1" id="7bX-u4-Sbu"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pPY-jP-SMH">
-                                        <rect key="frame" x="0.0" y="384.5" width="140" height="151.5"/>
+                                        <rect key="frame" x="0.0" y="294.33333333333331" width="114" height="114"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="pPY-jP-SMH" secondAttribute="height" multiplier="1:1" id="WPK-Y5-uf4"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -54,13 +63,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="tHn-j0-VgK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="137" id="1RF-TO-D38"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aNI-bU-ihu" secondAttribute="bottom" constant="101" id="4Ra-wL-o1P"/>
-                            <constraint firstItem="aNI-bU-ihu" firstAttribute="top" secondItem="tHn-j0-VgK" secondAttribute="bottom" constant="79" id="K9s-ON-dbP"/>
-                            <constraint firstItem="aNI-bU-ihu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MpT-0Y-3ee"/>
-                            <constraint firstItem="tHn-j0-VgK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="57" id="poh-Bk-bcB"/>
-                            <constraint firstItem="tHn-j0-VgK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="prX-Hx-QT0"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tHn-j0-VgK" secondAttribute="trailing" constant="137" id="sBH-16-Ya5"/>
+                            <constraint firstItem="aNI-bU-ihu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4if-Kr-AaG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="aNI-bU-ihu" secondAttribute="bottom" constant="40" id="HFz-qH-lHX"/>
+                            <constraint firstItem="uER-Fh-TZE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KuA-YF-dQp"/>
+                            <constraint firstItem="uER-Fh-TZE" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.266667" id="YIE-bd-hdo"/>
+                            <constraint firstItem="uER-Fh-TZE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="56" id="djX-4F-s1d"/>
                         </constraints>
                     </view>
                     <connections>

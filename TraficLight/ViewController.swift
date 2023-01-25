@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum CurrentColor {
+    case red, yellow, green
+}
+
 class ViewController: UIViewController {
     
     @IBOutlet var redColorView: UIView!
@@ -15,44 +19,72 @@ class ViewController: UIViewController {
     
     @IBOutlet var startButtonPressed: UIButton!
     
+    private var curentLightOf: CGFloat = 0.3
+    private var curentLightOn: CGFloat = 1
+    
+    private var currentLight: CurrentColor = .red
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        redColorView.alpha = 0.5
-        yellowColorView.alpha = 0.5
-        greenColorView.alpha = 0.5
+        redColorView.alpha = curentLightOf
+        yellowColorView.alpha = curentLightOf
+        greenColorView.alpha = curentLightOf
         
+        startButtonPressed.layer.cornerRadius = 10
+        startButtonPressed.configuration = setUpButton(with: "Start")
+        
+        
+    }
+    
+    override func viewWillLayoutSubviews() {
         redColorView.layer.cornerRadius = redColorView.frame.width/2
         yellowColorView.layer.cornerRadius = yellowColorView.frame.width/2
         greenColorView.layer.cornerRadius = greenColorView.frame.width/2
-        
-        startButtonPressed.configuration = setUpButton(with: "Start")
     }
     
     @IBAction func nextButtonPressed(){
-        if greenColorView.alpha == 0.5 && redColorView.alpha == 0.5 {
-            redColorView.alpha = 1
+        if startButtonPressed.currentTitle == "Text" {
             startButtonPressed.setTitle("Next", for: .normal)
-        } else if yellowColorView.alpha == 0.5 && redColorView.alpha == 1{
-            yellowColorView.alpha = 1
-            redColorView.alpha = 0.4
-        } else if yellowColorView.alpha == 1 && greenColorView.alpha == 0.5 {
-            greenColorView.alpha = 1
-            yellowColorView.alpha = 0.5
-        } else if yellowColorView.alpha == 0.5 && greenColorView.alpha == 1 {
-            greenColorView.alpha = 0.5
-            redColorView.alpha = 0.5
-            redColorView.alpha = 1
         }
+        switch currentLight {
             
-            
+        case .red:
+            redColorView.alpha = curentLightOn
+            greenColorView.alpha = curentLightOf
+            currentLight = .yellow
+        case .yellow:
+            redColorView.alpha = curentLightOf
+            yellowColorView.alpha = curentLightOn
+            currentLight = .green
+        case .green:
+            yellowColorView.alpha = curentLightOf
+            greenColorView.alpha = curentLightOn
+            currentLight = .red
         }
+        
+    }
+//        if redColorView.alpha == 1 {
+//            yellowColorView.alpha = curentLightOn
+//            redColorView.alpha = curentLightOf
+//        } else if yellowColorView.alpha == 1 {
+//            yellowColorView.alpha = curentLightOf
+//            greenColorView.alpha = curentLightOn
+//        } else if greenColorView.alpha == 1 {
+//            redColorView.alpha = curentLightOn
+//            greenColorView.alpha = curentLightOf
+//        } else {
+//            redColorView.alpha = curentLightOn
+//        }
+//
+//        }
+
     private func setUpButton(with title: String) -> UIButton.Configuration {
         var startButtonConfiguratin = UIButton.Configuration.filled()
         startButtonConfiguratin.baseBackgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
         startButtonConfiguratin.cornerStyle = .large
         startButtonConfiguratin.buttonSize = .large
         startButtonConfiguratin.title = title
-        startButtonConfiguratin.attributedTitle?.font = UIFont.systemFont(ofSize: 27)
+        startButtonConfiguratin.attributedTitle?.font = UIFont.systemFont(ofSize: 47)
         return startButtonConfiguratin
   }
 }
